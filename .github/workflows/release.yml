@@ -1,0 +1,30 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          body: |
+            ## wisdom-mattermost — ${{ github.ref_name }}
+            **Live at:** https://chat.wisdomignited.com
+            **Server:** Hetzner `37.27.214.143`
+
+            Self-hosted team communication for Wisdom Ignited Business Trust.
+            Replaces Slack. No App Store required — works in any browser.
+
+            ### Channels
+            - `#ciphernex` — blockchain events
+            - `#entities` — entity + document events
+            - `#deploys` — CI/CD notifications
+            - `#ops` — general operations
+
+            ### Setup
+            See README.md for first-time configuration steps.
