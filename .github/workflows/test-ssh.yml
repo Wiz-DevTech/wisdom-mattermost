@@ -12,7 +12,7 @@ jobs:
         with:
           host: 37.27.214.143
           username: deployer
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          key: ${{ secrets.DEPLOYER_SSH_KEY }}   # Changed from SERVER_SSH_KEY
           port: 443
           script: |
             echo "✅ Connected to $(hostname)"
